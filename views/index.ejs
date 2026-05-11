@@ -1,0 +1,112 @@
+<%- include('partials/header') %>
+
+<!-- Hero Section -->
+<section class="hero-section text-white py-5" style="background: linear-gradient(135deg, #1a56a0 0%, #0d3b7a 100%);">
+  <div class="container py-4">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h1 class="display-4 fw-bold mb-3">Welcome to <span class="text-warning">ShopEase</span></h1>
+        <p class="lead mb-4">Discover thousands of products at unbeatable prices. Shop smarter, live better.</p>
+        <a href="/products" class="btn btn-warning btn-lg px-5 fw-bold">
+          <i class="fas fa-shopping-bag me-2"></i>Shop Now
+        </a>
+      </div>
+      <div class="col-md-6 text-center">
+        <i class="fas fa-shopping-cart" style="font-size: 150px; opacity: 0.3;"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4">Shop by <span class="text-primary">Category</span></h2>
+    <div class="row g-3 justify-content-center">
+      <% const icons = { 'Electronics': 'laptop', 'Fashion': 'tshirt', 'Home & Kitchen': 'home', 'Sports': 'futbol', 'Books': 'book', 'Beauty': 'spa', 'Toys': 'gamepad', 'Other': 'box' }; %>
+      <% categories.forEach(cat => { %>
+        <div class="col-6 col-md-3 col-lg-2">
+          <a href="/products?category=<%= cat %>" class="text-decoration-none">
+            <div class="card text-center category-card p-3 h-100 border-0 shadow-sm">
+              <i class="fas fa-<%= icons[cat] || 'box' %> fa-2x text-primary mb-2"></i>
+              <small class="fw-semibold text-dark"><%= cat %></small>
+            </div>
+          </a>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Products -->
+<% if (featuredProducts.length > 0) { %>
+<section class="py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-4">⭐ Featured <span class="text-primary">Products</span></h2>
+    <div class="row g-4">
+      <% featuredProducts.forEach(product => { %>
+        <div class="col-6 col-md-4 col-lg-3">
+          <%- include('partials/product-card', { product }) %>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<!-- Latest Products -->
+<% if (latestProducts.length > 0) { %>
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="fw-bold mb-4">🆕 Latest <span class="text-primary">Arrivals</span></h2>
+    <div class="row g-4">
+      <% latestProducts.forEach(product => { %>
+        <div class="col-6 col-md-4 col-lg-3">
+          <%- include('partials/product-card', { product }) %>
+        </div>
+      <% }); %>
+    </div>
+    <div class="text-center mt-4">
+      <a href="/products" class="btn btn-primary btn-lg px-5">View All Products</a>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<!-- Features Banner -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-md-3">
+        <div class="p-3">
+          <i class="fas fa-shipping-fast fa-3x text-primary mb-3"></i>
+          <h6 class="fw-bold">Free Shipping</h6>
+          <small class="text-muted">On orders above ₹499</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="p-3">
+          <i class="fas fa-undo fa-3x text-success mb-3"></i>
+          <h6 class="fw-bold">Easy Returns</h6>
+          <small class="text-muted">7-day return policy</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="p-3">
+          <i class="fas fa-lock fa-3x text-warning mb-3"></i>
+          <h6 class="fw-bold">Secure Payment</h6>
+          <small class="text-muted">100% safe checkout</small>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="p-3">
+          <i class="fas fa-headset fa-3x text-danger mb-3"></i>
+          <h6 class="fw-bold">24/7 Support</h6>
+          <small class="text-muted">Always here to help</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

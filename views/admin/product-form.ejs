@@ -1,0 +1,103 @@
+<%- include('../partials/header') %>
+
+<div class="container-fluid py-4">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body p-3">
+          <h6 class="fw-bold text-primary mb-3"><i class="fas fa-cog me-2"></i>Admin Panel</h6>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/admin" class="text-decoration-none text-muted"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
+            <li class="mb-2"><a href="/admin/products" class="text-decoration-none text-dark fw-semibold"><i class="fas fa-box me-2 text-primary"></i>Products</a></li>
+            <li class="mb-2"><a href="/admin/orders" class="text-decoration-none text-muted"><i class="fas fa-shopping-bag me-2"></i>Orders</a></li>
+            <li class="mb-2"><a href="/admin/users" class="text-decoration-none text-muted"><i class="fas fa-users me-2"></i>Users</a></li>
+            <li class="mb-2"><a href="/" class="text-decoration-none text-muted"><i class="fas fa-store me-2"></i>View Store</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="col-md-10">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="fw-bold mb-0"><%= product ? 'Edit Product' : 'Add New Product' %></h4>
+        <a href="/admin/products" class="btn btn-outline-secondary">
+          <i class="fas fa-arrow-left me-2"></i>Back
+        </a>
+      </div>
+
+      <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+          <form action="<%= product ? '/admin/products/edit/' + product._id : '/admin/products/add' %>" method="POST" enctype="multipart/form-data">
+            <div class="row g-3">
+              <div class="col-md-8">
+                <label class="form-label fw-semibold">Product Name *</label>
+                <input type="text" name="name" class="form-control" placeholder="Enter product name"
+                  value="<%= product ? product.name : '' %>" required>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Category *</label>
+                <select name="category" class="form-select" required>
+                  <option value="">Select Category</option>
+                  <% categories.forEach(cat => { %>
+                    <option value="<%= cat %>" <%= (product && product.category === cat) ? 'selected' : '' %>><%= cat %></option>
+                  <% }); %>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Description *</label>
+                <textarea name="description" class="form-control" rows="4"
+                  placeholder="Enter product description" required><%= product ? product.description : '' %></textarea>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Selling Price (₹) *</label>
+                <input type="number" name="price" class="form-control" placeholder="e.g. 999"
+                  value="<%= product ? product.price : '' %>" min="1" required>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Original Price (₹) <small class="text-muted">(for discount)</small></label>
+                <input type="number" name="originalPrice" class="form-control" placeholder="e.g. 1499"
+                  value="<%= product ? product.originalPrice : '' %>" min="0">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">Stock Quantity *</label>
+                <input type="number" name="stock" class="form-control" placeholder="e.g. 50"
+                  value="<%= product ? product.stock : '' %>" min="0" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Product Image</label>
+                <input type="file" name="image" class="form-control" accept="image/*">
+                <% if (product && product.image) { %>
+                  <div class="mt-2">
+                    <small class="text-muted">Current image:</small><br>
+                    <img src="/images/<%= product.image %>" alt="Current"
+                      style="width:80px; height:80px; object-fit:cover; border-radius:8px;" class="mt-1">
+                  </div>
+                <% } %>
+              </div>
+              <div class="col-md-6 d-flex align-items-center">
+                <div class="form-check form-switch mt-3">
+                  <input class="form-check-input" type="checkbox" name="featured" id="featured"
+                    <%= (product && product.featured) ? 'checked' : '' %>>
+                  <label class="form-check-label fw-semibold" for="featured">
+                    ⭐ Mark as Featured Product
+                    <br><small class="text-muted fw-normal">Featured products appear on homepage</small>
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 mt-2">
+                <button type="submit" class="btn btn-primary btn-lg px-5">
+                  <i class="fas fa-save me-2"></i><%= product ? 'Update Product' : 'Add Product' %>
+                </button>
+                <a href="/admin/products" class="btn btn-outline-secondary btn-lg ms-2">Cancel</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

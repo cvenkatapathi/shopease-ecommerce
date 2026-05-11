@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background: linear-gradient(135deg, #1a56a0, #0d3b7a);">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-4" href="/">
+      <i class="fas fa-shopping-bag me-2"></i>ShopEase
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Search -->
+      <form class="d-flex mx-auto w-50" action="/products" method="GET">
+        <div class="input-group">
+          <input class="form-control" type="search" name="search" placeholder="Search products..." value="<%= typeof search !== 'undefined' ? search : '' %>">
+          <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i></button>
+        </div>
+      </form>
+      <ul class="navbar-nav ms-auto align-items-center gap-2">
+        <li class="nav-item">
+          <a class="nav-link" href="/products"><i class="fas fa-store me-1"></i>Shop</a>
+        </li>
+        <% if (user) { %>
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="/cart">
+              <i class="fas fa-shopping-cart me-1"></i>Cart
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cart/orders"><i class="fas fa-box me-1"></i>Orders</a>
+          </li>
+          <% if (isAdmin) { %>
+            <li class="nav-item">
+              <a class="nav-link text-warning" href="/admin"><i class="fas fa-cog me-1"></i>Admin</a>
+            </li>
+          <% } %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              <i class="fas fa-user-circle me-1"></i><%= user.name.split(' ')[0] %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="/auth/logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+            </ul>
+          </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="btn btn-outline-light btn-sm" href="/auth/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-warning btn-sm" href="/auth/register">Register</a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Flash Messages -->
+<div class="container mt-2">
+  <% if (success && success.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <i class="fas fa-check-circle me-2"></i><%= success %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+  <% } %>
+  <% if (error && error.length > 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <i class="fas fa-exclamation-circle me-2"></i><%= error %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+  <% } %>
+</div>

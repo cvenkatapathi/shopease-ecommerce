@@ -1,0 +1,78 @@
+<%- include('../partials/header') %>
+
+<div class="container py-5">
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/products">Products</a></li>
+      <li class="breadcrumb-item active"><%= product.name %></li>
+    </ol>
+  </nav>
+
+  <div class="row g-5">
+    <!-- Product Image -->
+    <div class="col-md-5">
+      <div class="card border-0 shadow-sm">
+        <img src="/images/<%= product.image %>" class="img-fluid rounded" alt="<%= product.name %>"
+          onerror="this.src='https://via.placeholder.com/500x400?text=No+Image'" style="max-height: 400px; object-fit: cover; width: 100%;">
+      </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="col-md-7">
+      <span class="badge bg-primary mb-2"><%= product.category %></span>
+      <h2 class="fw-bold"><%= product.name %></h2>
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <span class="fs-3 fw-bold text-primary">₹<%= product.price.toLocaleString() %></span>
+        <% if (product.originalPrice > product.price) { %>
+          <span class="fs-5 text-muted text-decoration-line-through">₹<%= product.originalPrice.toLocaleString() %></span>
+          <span class="badge bg-danger fs-6"><%= Math.round((1 - product.price / product.originalPrice) * 100) %>% OFF</span>
+        <% } %>
+      </div>
+
+      <p class="text-muted mb-4"><%= product.description %></p>
+
+      <div class="mb-3">
+        <% if (product.stock > 0) { %>
+          <span class="badge bg-success fs-6"><i class="fas fa-check-circle me-1"></i>In Stock (<%= product.stock %> available)</span>
+        <% } else { %>
+          <span class="badge bg-danger fs-6">Out of Stock</span>
+        <% } %>
+      </div>
+
+      <% if (product.stock > 0) { %>
+        <form action="/cart/add/<%= product._id %>" method="POST" class="d-flex gap-3">
+          <button type="submit" class="btn btn-primary btn-lg px-5">
+            <i class="fas fa-cart-plus me-2"></i>Add to Cart
+          </button>
+          <a href="/cart" class="btn btn-outline-secondary btn-lg">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </form>
+      <% } %>
+
+      <hr class="my-4">
+      <div class="d-flex gap-4 text-muted small">
+        <span><i class="fas fa-shield-alt me-1 text-success"></i>100% Genuine</span>
+        <span><i class="fas fa-undo me-1 text-info"></i>7-day Return</span>
+        <span><i class="fas fa-truck me-1 text-warning"></i>Fast Delivery</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <% if (related.length > 0) { %>
+    <div class="mt-5">
+      <h4 class="fw-bold mb-4">Related Products</h4>
+      <div class="row g-4">
+        <% related.forEach(p => { %>
+          <div class="col-6 col-md-3">
+            <%- include('../partials/product-card', { product: p }) %>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  <% } %>
+</div>
+
+<%- include('../partials/footer') %>
