@@ -1,4 +1,4 @@
-# 🛒 ShopEase — Full Stack E-Commerce Website
+#  ShopEase — Full Stack E-Commerce Website
 
 A complete full-stack e-commerce web application built with **HTML, CSS, Node.js, Express, and MongoDB**.
 
@@ -9,15 +9,15 @@ A complete full-stack e-commerce web application built with **HTML, CSS, Node.js
 
 ---
 
-## 🌐 Live Demo
-🔗 **[View Live](#)** ← *(Add Render/Railway deployment link)*
-🎥 **[Watch Demo Video](#)** ← *(Add Loom video link)*
+##  Live Demo
+   **[View Live](#)** ← *(Add Render/Railway deployment link)*
+   **[Watch Demo Video](#)** ← *(Add Loom video link)*
 
 ---
 
-## ✨ Features
+##  Features
 
-### 👤 User Features
+###  User Features
 - ✅ Register & Login with secure password hashing (bcrypt)
 - ✅ Browse & Search products by name, category, price
 - ✅ Filter & Sort products
@@ -25,7 +25,7 @@ A complete full-stack e-commerce web application built with **HTML, CSS, Node.js
 - ✅ Checkout with shipping address
 - ✅ View order history with status tracking
 
-### 🛠️ Admin Features
+###  Admin Features
 - ✅ Admin Dashboard with live stats (products, users, orders, revenue)
 - ✅ Add / Edit / Delete products with image upload
 - ✅ Mark products as Featured
@@ -34,7 +34,7 @@ A complete full-stack e-commerce web application built with **HTML, CSS, Node.js
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -47,7 +47,7 @@ A complete full-stack e-commerce web application built with **HTML, CSS, Node.js
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ecommerce/
@@ -102,7 +102,7 @@ ecommerce/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Node.js (v16+)
@@ -135,7 +135,7 @@ Open: **http://localhost:3000**
 
 ---
 
-## 🔑 Test Credentials
+##  Test Credentials
 
 | Role | Email | Password |
 |------|-------|----------|
@@ -157,7 +157,7 @@ Open: **http://localhost:3000**
 
 ---
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 - [ ] Payment gateway integration (Razorpay)
 - [ ] Product reviews & ratings
 - [ ] Email notifications for orders
@@ -166,7 +166,7 @@ Open: **http://localhost:3000**
 
 ---
 
-## 👨‍💻 Built By
+##  Built By
 
 **Chamarthi Venkatapathi Raju**
 
