@@ -18,19 +18,19 @@ A complete full-stack e-commerce web application built with **HTML, CSS, Node.js
 ##  Features
 
 ###  User Features
-- ✅ Register & Login with secure password hashing (bcrypt)
-- ✅ Browse & Search products by name, category, price
-- ✅ Filter & Sort products
-- ✅ Add to Cart & update quantities
-- ✅ Checkout with shipping address
-- ✅ View order history with status tracking
+-  Register & Login with secure password hashing (bcrypt)
+-  Browse & Search products by name, category, price
+-  Filter & Sort products
+-  Add to Cart & update quantities
+-  Checkout with shipping address
+-  View order history with status tracking
 
 ###  Admin Features
-- ✅ Admin Dashboard with live stats (products, users, orders, revenue)
-- ✅ Add / Edit / Delete products with image upload
-- ✅ Mark products as Featured
-- ✅ Manage all orders & update order status
-- ✅ View all registered users
+-  Admin Dashboard with live stats (products, users, orders, revenue)
+-  Add / Edit / Delete products with image upload
+-  Mark products as Featured
+-  Manage all orders & update order status
+-  View all registered users
 
 ---
 
