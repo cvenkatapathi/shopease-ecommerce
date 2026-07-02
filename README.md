@@ -144,19 +144,6 @@ Open: **http://localhost:3000**
 
 ---
 
-## 📸 Screenshots
-
-> *(Add screenshots after running the project)*
-
-| Page | Screenshot |
-|------|-----------|
-| Home Page | *(add image)* |
-| Products Page | *(add image)* |
-| Cart | *(add image)* |
-| Admin Dashboard | *(add image)* |
-
----
-
 ##  Future Enhancements
 - [ ] Payment gateway integration (Razorpay)
 - [ ] Product reviews & ratings
