@@ -158,5 +158,4 @@ Open: **http://localhost:3000**
 **Chamarthi Venkatapathi Raju**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/venkatapathi-raju-chamarthi)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/[your-username])
 [![Email](https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail)](mailto:ccvenkatapathiraju12@gmail.com)
