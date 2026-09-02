@@ -9,12 +9,6 @@ A complete full-stack e-commerce web application built with **HTML, CSS, Node.js
 
 ---
 
-## Live Demo
-  **[View Live](#)** 
- **[Watch Demo Video](#)** ← *(Add Loom video link)*
-
----
-
 # Features
 
 ###  User Features
