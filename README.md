@@ -106,17 +106,11 @@ ecommerce/
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/[your-username]/shopease-ecommerce.git
+git clone https://github.com/[cvenkatapathi]/shopease-ecommerce.git
 cd shopease-ecommerce
 
 # 2. Install dependencies
 npm install
-
-# 3. Configure environment
-# Edit .env file:
-MONGODB_URI=mongodb://localhost:27017/ecommerce
-SESSION_SECRET=your_secret_key_here
-PORT=3000
 
 # 4. Seed sample data
 node seed.js
@@ -124,10 +118,6 @@ node seed.js
 # 5. Start server
 npm start
 ```
-
-Open: **http://localhost:3000**
-
----
 
 ##  Test Credentials
 
